@@ -504,7 +504,7 @@ namespace tyngdlyftning.Controllers
         {
             get
             {
-                return _roleManager ?? HttpContext.GetOwinContext().GetUserManager();
+                return _roleManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationRoleManager>();
             }
             private set
             {
