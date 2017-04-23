@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace tyngdlyftning.Models
 {
-    public class ExpandedUsersDTO
+    public class ExpandedUserDTO
     {
         [Key]
         [Display(Name = "Användarnamn")]
@@ -29,7 +29,7 @@ namespace tyngdlyftning.Models
     public class UserRolesDTO
     {
         [Key]
-        [Display(Name = "Roll namn")]
+        [Display(Name = "Namn på roll")]
         public string RoleName { get; set; }
     }
 
@@ -39,7 +39,7 @@ namespace tyngdlyftning.Models
         [Display(Name = "Användarnamn")]
         public string UserName { get; set; }
 
-        [Display(Name = "Roll namn")]
+        [Display(Name = "Namn på roll")]
         public string RoleName { get; set; }
     }
 
@@ -48,6 +48,13 @@ namespace tyngdlyftning.Models
         [Key]
         public string Id { get; set; }
 
+        [Display(Name = "Namn på roll")]
+        public string RoleName { get; set; }
+    }
+
+    public class UserAndRolesDTO
+    {
+        [Key]
         [Display(Name = "Användarnamn")]
         public string UserName { get; set; }
 

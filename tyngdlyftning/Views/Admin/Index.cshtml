@@ -1,0 +1,51 @@
+﻿@model PagedList.IPagedList<tyngdlyftning.Models.ExpandedUserDTO>
+@using PagedList.Mvc
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Användare";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<p>
+    @Html.ActionLink("Skapa ny", "Create", null, new { @class="btn btn-primary" })
+    @Html.ActionLink("Ändra roller", "ViewAllRoles", null, new { @class="btn btn-primary" })
+    @Html.ActionLink("Hem", "../", "Home", null, new { @class="btn btn-primary" })
+</p>
+
+@using (Html.BeginForm("Index", "Admin", FormMethod.Get))
+{
+    <div class="form-group">
+        Search:&nbsp; @Html.TextBox("searchStringUserNameOrEmail", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Sök" />
+    </div>
+}
+<br />
+
+<table class="table">
+    <tr>
+        <th>E-post</th>
+        <th>Låst konto</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LockoutEndDateUtc)
+            </td>
+            <td>
+                @Html.ActionLink("Ändra", "EditUser", new { UserName = item.UserName })
+                @if ((item.UserName.ToLower() != this.User.Identity.Name.ToLower()))
+                {
+                    @Html.ActionLink("Radera", "DeleteUser", new { UserName = item.UserName },
+                    new { onClick = "return confirm('Är du säker på att du vill radera användaren?');" })
+                }
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<tyngdlyftning.Models.RoleDTO>
+
+@{
+    ViewBag.Title = "Roller";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<p>
+    @Html.ActionLink("Tillbaka till listan", "Index", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Lägg till roll", "AddRole", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>Roll</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoleName)
+            </td>
+            <td>
+                @if (item.RoleName.ToLower() != "administrator")
+                {
+                    @Html.ActionLink("Radera", "DeleteUserRole",
+                    new { RoleName = item.RoleName },
+                    new
+                    {
+                        onClick =
+                        "return confirm('Är du säker på att du vill radera den här rollen?');"
+                    })
+                }
+            </td>
+        </tr>
+    }
+</table>
+
