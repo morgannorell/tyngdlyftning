@@ -27,8 +27,8 @@ namespace tyngdlyftning
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
             // Handles admin menu
-            bundles.Add(new ScriptBundle("~/bundles/admin").Include(
-                       "~/Scripts/AdminMenu.js"));
+            bundles.Add(new ScriptBundle("~/bundles/tavling").Include(
+                       "~/Scripts/TavlingMenu.js"));
         }
     }
 }
