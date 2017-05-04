@@ -179,6 +179,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -186,12 +187,21 @@
     <Compile Include="Migrations\201704172215066_initialSetup.Designer.cs">
       <DependentUpon>201704172215066_initialSetup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705041141372_TeamDb.cs" />
+    <Compile Include="Migrations\201705041141372_TeamDb.Designer.cs">
+      <DependentUpon>201705041141372_TeamDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705041143368_TeamDbChangeColumnName.cs" />
+    <Compile Include="Migrations\201705041143368_TeamDbChangeColumnName.Designer.cs">
+      <DependentUpon>201705041143368_TeamDbChangeColumnName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\Tavling.cs" />
+    <Compile Include="Models\Team.cs" />
     <Compile Include="Models\UserRolesDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -282,6 +292,11 @@
     <Content Include="Views\Admin\Create.cshtml" />
     <Content Include="Views\Admin\EditUser.cshtml" />
     <Content Include="Views\Admin\EditRoles.cshtml" />
+    <Content Include="Views\Teams\Create.cshtml" />
+    <Content Include="Views\Teams\Delete.cshtml" />
+    <Content Include="Views\Teams\Details.cshtml" />
+    <Content Include="Views\Teams\Edit.cshtml" />
+    <Content Include="Views\Teams\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -293,6 +308,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201704172215066_initialSetup.resx">
       <DependentUpon>201704172215066_initialSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705041141372_TeamDb.resx">
+      <DependentUpon>201705041141372_TeamDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705041143368_TeamDbChangeColumnName.resx">
+      <DependentUpon>201705041143368_TeamDbChangeColumnName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

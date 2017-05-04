@@ -10,27 +10,27 @@
 <h4>Användare</h4>
 <hr />
 <div class="row">
-    <div class="col-sm-3">
-        @Html.ActionLink("Skapa ny användare", "Create", null, new { @class = "btn btn-primary" })
-        @*@Html.ActionLink("Hantera roller", "ViewAllRoles", null, new { @class = "btn btn-primary" })*@
-    </div>
-    <div class="col-sm-9">
+    <div class="col-sm-5">
         @using (Html.BeginForm("Index", "Admin", FormMethod.Get))
         {
             <div class="form-group">
                 @Html.TextBox("searchStringUserNameOrEmail", ViewBag.CurrentFilter as string,
-                new { @class = "form-control col-sm-3" })
+                new { @class = "form-control  col-sm-5" })
                 <input type="submit" value="Sök" class="btn btn-primary" />
             </div>
         }
     </div>
+    <div class="col-sm-7">
+        @Html.ActionLink("Skapa ny användare", "Create", null, new { @class = "btn btn-primary" })
+        @*@Html.ActionLink("Hantera roller", "ViewAllRoles", null, new { @class = "btn btn-primary" })*@
+    </div>  
 </div>
-     
+<br />     
 <table class="table table-striped table-condensed table-hover table-responsive">
     <tr>
         <th>E-post</th>
         <th>Låst konto</th>
-        <th></th>
+        <th>Hantera</th>
     </tr>
 
     @foreach (var item in Model)
@@ -46,6 +46,7 @@
                 @Html.ActionLink("Ändra", "EditUser", new { UserName = item.UserName })
                 @if ((item.UserName.ToLower() != this.User.Identity.Name.ToLower()))
                 {
+                    <text>|</text>
                     @Html.ActionLink("Radera", "DeleteUser", new { UserName = item.UserName },
                     new { onClick = "return confirm('Är du säker på att du vill radera användaren?');" })
                 }
